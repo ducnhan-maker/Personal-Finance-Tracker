@@ -3,35 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản Lý Chi Tiêu Cá Nhân</title>
+    <title>Quản Lý Chi Tiêu Cá Nhân - Pro</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
-        <h2>💰 Quản Lý Tiền Bạc Cá Nhân</h2>
-        
-        <!-- Khu vực hiển thị số dư -->
-        <div class="thong-ke">
-            <div class="the">Số dư: <span id="so-du">0</span>đ</div>
-            <div class="the thu-nhap">Thu nhập: <span id="tong-thu">0</span>đ</div>
-            <div class="the chi-tieu">Chi tiêu: <span id="tong-chi">0</span>đ</div>
+        <div class="screen" id="screen-list">
+            <h2>💰 Quản Lý Tiền Bạc Cá Nhân</h2>
+            
+            <div class="thong-ke-nhanh">
+                <p>Số dư: <strong id="sd-nhanh">0đ</strong></p>
+                <p>Thu nhập: <strong id="tn-nhanh">0đ</strong></p>
+                <p>Chi tiêu: <strong id="ct-nhanh">0đ</strong></p>
+            </div>
+
+            <div class="Hanh-dong-tren">
+                <button type="button" class="btn-them-moi" id="btn-mo-form"><i class="fa fa-plus"></i> Thêm giao dịch mới</button>
+            </div>
+
+            <h3>Lịch sử giao dịch</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nội dung</th>
+                            <th>Số tiền (đ)</th>
+                            <th>Loại</th>
+                            <th>Ngày</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody id="body-bang">
+                        </tbody>
+                </table>
+            </div>
+
+            <div class="tong-ket-khoi thu-nhap-khoi">Tổng thu nhập: <span id="tong-thu">0</span>đ</div>
+            <div class="tong-ket-khoi chi-tieu-khoi">Tổng chi tiêu: <span id="tong-chi">0</span>đ</div>
+            <div class="tong-ket-khoi so-du-khoi">Số dư hiện tại: <span id="so-du">0</span>đ</div>
         </div>
 
-        <!-- Form nhập dữ liệu -->
-        <form id="form-giao-dich">
-            <input type="text" id="ten" placeholder="Ví dụ: Lương, Mua cơm..." required>
-            <input type="number" id="so-tien" placeholder="Số tiền (đ)..." required>
-            <select id="loai">
-                <option value="thu">Thu nhập (+)</option>
-                <option value="chi">Chi tiêu (-)</option>
-            </select>
-            <button type="submit">Thêm giao dịch</button>
-        </form>
+        <div class="screen hidden" id="screen-form">
+            <h2 id="form-title"><i class="fa fa-plus"></i> Thêm giao dịch mới</h2>
+            <form id="form-giao-dich">
+                <input type="hidden" id="giao-dich-id">
 
-        <!-- Lịch sử giao dịch -->
-        <h3>Lịch sử giao dịch</h3>
-        <ul id="danh-sach"></ul>
+                <div class="form-group">
+                    <label>Nội dung</label>
+                    <input type="text" id="ten" placeholder="Ví dụ: Lương, Mua cơm, Mua sách..." required>
+                </div>
+
+                <div class="form-group">
+                    <label>Số tiền (đ)</label>
+                    <input type="number" id="so-tien" placeholder="Nhập số tiền..." required>
+                </div>
+
+                <div class="form-group">
+                    <label>Loại giao dịch</label>
+                    <select id="loai">
+                        <option value="thu">Thu nhập (+)</option>
+                        <option value="chi">Chi tiêu (-)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Ngày</label>
+                    <input type="date" id="ngay" required>
+                </div>
+
+                <div class="form-btn-group">
+                    <button type="submit" class="btn-luu" id="btn-submit-text">Lưu giao dịch</button>
+                    <button type="button" class="btn-huy" id="btn-huy">Hủy</button>
+                </div>
+            </form>
+            <div class="ghi-chu-form">
+                * Khi sửa giao dịch, các thông tin sẽ được hiển thị sẵn trong form.
+            </div>
+        </div>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>
