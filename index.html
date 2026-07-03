@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Chi Tiêu Cá Nhân</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>💰 Quản Lý Tiền Bạc Cá Nhân</h2>
+        
+        <!-- Khu vực hiển thị số dư -->
+        <div class="thong-ke">
+            <div class="the">Số dư: <span id="so-du">0</span>đ</div>
+            <div class="the thu-nhap">Thu nhập: <span id="tong-thu">0</span>đ</div>
+            <div class="the chi-tieu">Chi tiêu: <span id="tong-chi">0</span>đ</div>
+        </div>
+
+        <!-- Form nhập dữ liệu -->
+        <form id="form-giao-dich">
+            <input type="text" id="ten" placeholder="Ví dụ: Lương, Mua cơm..." required>
+            <input type="number" id="so-tien" placeholder="Số tiền (đ)..." required>
+            <select id="loai">
+                <option value="thu">Thu nhập (+)</option>
+                <option value="chi">Chi tiêu (-)</option>
+            </select>
+            <button type="submit">Thêm giao dịch</button>
+        </form>
+
+        <!-- Lịch sử giao dịch -->
+        <h3>Lịch sử giao dịch</h3>
+        <ul id="danh-sach"></ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
